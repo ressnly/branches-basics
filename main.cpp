@@ -1,23 +1,26 @@
 #include <iostream>
+#include <stdlib.h>
 #define N 10
 
 void initMassive(int a[], int n);
-void shackersort(int a[], int n)
+void shackerSort(int a[], int n);
+void outputMassive(int a[], int n);
 
 int main()
 {
 	int a[N];
 	initMassive(a,N);
-	std::cout << "All right, man" << std::endl;
+	shackerSort(a,N);
+	outputMassive(a,N);
 	return 0;
 }
 
 void initMassive(int a[], int n)
 {
-	for(int i = 0; i < n; ++i) *(a+i) = i;
+	for(int i = 0; i < n; ++i) *(a+i) = rand()%10;
 }
 
-void shackersort(int a[], int n)
+void shackerSort(int a[], int n)
 {
     int k = n - 1,
         r = n - 1,
@@ -28,7 +31,7 @@ void shackersort(int a[], int n)
         {
             if(a[i] < a[i-1])
             {
-                swap(a[i],a[i-1]);
+                std::swap(a[i],a[i-1]);
                 k = i;
             }
         }
@@ -38,7 +41,7 @@ void shackersort(int a[], int n)
         {
             if(a[i] > a[i+1])
             {
-                swap(a[i],a[i+1]);
+                std::swap(a[i],a[i+1]);
                 k = i;
             }
         }
@@ -46,4 +49,11 @@ void shackersort(int a[], int n)
     } while(l < r);
 
     return;
+}
+
+void outputMassive(int a[], int n)
+{
+	std::cout << std::endl;
+	for(int i = 0; i < n; ++i) std::cout << *(a+i) << " ";
+	std::cout << std::endl;
 }
