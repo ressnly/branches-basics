@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#define N 10
+#define N 9
 
 void initMassive(int a[], int n);
 void shackerSort(int a[], int n);
